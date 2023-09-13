@@ -11,7 +11,7 @@ class SellerForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email', 'gender',
                   'birth_date', 'active']
 
-        widget = {
+        widgets = {
             'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your first name'}),
             'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your last name'}),
             'email': EmailInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}),

@@ -173,8 +173,8 @@ a {
   padding: 12px 30px;
   border-radius: 30px;
   color: #ffffff;
-  background: #2f2f2f;
-  border-color: #2f2f2f; }
+  background: yellow;
+  border-color:yelow; }
   .btn:hover {
     color: #ffffff;
     background: #222222;
@@ -698,7 +698,7 @@ textarea {
     text-align: center;
     border-width: 0px !important;
     vertical-align: middle;
-    color: rgba(0, 0, 0, 0.8);
+    color: yellow;  /*rgba(0, 0, 0, 0.8);*/
     font-size: 18px; }
   .site-blocks-table td {
     padding: 20px;

@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import TextInput, EmailInput, Select, DateInput
+from django.forms import TextInput, EmailInput, Select, DateInput, FileInput, CheckboxInput
 from django.utils import timezone
 
 from seller.models import Seller
@@ -9,7 +9,7 @@ class SellerForm(forms.ModelForm):
     class Meta:
         model = Seller
         fields = ['first_name', 'last_name', 'email', 'gender',
-                  'birth_date', 'active']
+                  'birth_date', 'active', 'profile']
 
         widgets = {
             'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your first name'}),
@@ -17,6 +17,8 @@ class SellerForm(forms.ModelForm):
             'email': EmailInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}),
             'gender': Select(attrs={'class': 'form-select'}),
             'birth_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'active': CheckboxInput(attrs={'class': 'custom-checkbox-class'}),
+            'profile': FileInput(attrs={'class': 'form-control-file'}),
         }
 
     def clean(self):

@@ -14,6 +14,7 @@ class Seller(models.Model):
     gender = models.CharField(max_length=6, choices=gender_choices)
     birth_date = models.DateField()
     active = models.BooleanField(default=True)
+    profile = models.ImageField(upload_to='profiles_seller/', null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

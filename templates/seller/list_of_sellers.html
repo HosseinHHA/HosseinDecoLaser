@@ -1,0 +1,123 @@
+{% extends 'layout/content_base.html' %}
+{% load static %}
+
+
+{% block hero %}
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="intro-excerpt">
+                    <h1>Lost of sellers: </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block product-section %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong> Congratulation!</strong>{{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+
+                {% endfor %}
+            {% endif %}
+
+            {% if all_sellers %}
+                <table class="table">
+                <thead>
+                <tr>
+                    <th>ID.</th>
+                    <th>profile</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                    <th>Gender</th>
+                    <th>Created at</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for seller in all_sellers %}
+
+                    <tr>
+                    <td>{{ seller.id }}</td>
+
+                    <!--Start profile-->
+                    <td>
+                        {% if seller.profile %}
+                            <img src="{{ seller.profile.url }}" style="width: 60px; height: 60px"
+                                 alt="No image.">
+                        {% elif  seller.gender == 'male' %}
+                            <img src="{% static 'images/male_icon.jpg' %}" style="width: 60px; height: 60px"
+                                 alt="No image.">
+                        {% elif seller.gender == 'female' %}
+                            <img src="{% static 'images/female_icon.jpg' %}" style="width: 60px; height: 60px"
+                                 alt="No image.">
+                        {% endif %}
+                    </td>
+                    <!--End profile-->
+
+                    <td>{{ seller.first_name }}</td>
+                    <td>{{ seller.last_name }}</td>
+                    <td>{{ seller.email }}</td>
+                    <td>
+                        {% if seller.active %}
+                            Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ seller.gender|title }}
+                    </td>
+                    <td>
+                        {{ seller.created_at|date:'d-M-y h:i:s' }}
+                    </td>
+                    {#                                {% if perms.seller.change_seller or perms.seller.delete_seller or perms.seller.view_seller %}#}
+                    <td>
+                    <div class="dropdown ">
+                    <a class="btn btn-warning dropdown-toggle" type="button" style="background:yellow!important;"
+                            data-bs-toggle="dropdown" aria-expanded="false">More actions
+                    </a>
+                    <ul class="dropdown-menu">
+                    {#                                {% if perms.seller.change_seller %}#}
+                    <li><a class="dropdown-item" href=#>Modify</a>
+                        {#                                                                        {% url 'update-seller' seller.id %}#}
+                    </li>
+                    {#                                {% endif %}#}
+                    {#                                {% if perms.seller.delete_seller %}#}
+                    <li><a class="dropdown-item" href=#>Delete</a>
+                    </li>
+                    {#                                {% endif %}#}
+                    {#                                {% if perms.seller.view_seller %}#}
+                    <li><a class="dropdown-item" href=#>View details</a></li>
+                                {#                                {% endif %}#}
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                {#                    {% else %}#}
+                                {#                    <td>No action</td>#}
+                                {#                                                    {% endif %}#}
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h1 class="text-center">NO SELLER!</h1>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -4,7 +4,7 @@
 
 <!-- Start Hero Section -->
 <div class="hero">
-    {% block main_content %}
+    {% block hero %}
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-5">
@@ -13,7 +13,7 @@
                         <p class="mb-4">Bring the art to your home, yard and office and feel the happiness by
                             looking at Decolaser shapes.</p>
                         <p><a href="" class="btn btn-secondary me-2">Shop Now</a>
-{#                            <a href="#" class="btn btn-white-outline">Explore</a>#}
+                           <!-- <a href="#" class="btn btn-white-outline">Explore</a> -->
                         </p>
                     </div>
                 </div>
@@ -32,6 +32,7 @@
 
 <!-- Start Product Section -->
 <div class="product-section">
+    {% block product-section %}
     <div class="container">
         <div class="row">
 
@@ -88,11 +89,13 @@
 
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End Product Section -->
 
 <!-- Start Why Choose Us Section -->
 <div class="why-choose-section">
+    {% block why-choose-section %}
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-6">
@@ -156,11 +159,13 @@
 
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End Why Choose Us Section -->
 
 <!-- Start We Help Section -->
 <div class="we-help-section">
+    {% block we-help-section %}
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-7 mb-5 mb-lg-0">
@@ -186,11 +191,13 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End We Help Section -->
 
 <!-- Start Popular Product -->
 <div class="popular-product">
+    {% block popular-product %}
     <div class="container">
         <div class="row">
 
@@ -235,11 +242,13 @@
 
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End Popular Product -->
 
 <!-- Start Testimonial Slider -->
-<div class="testimonial-section">
+<div class="testimonial-section" id="testimonial-section">
+    {% block testimonial-section %}
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
@@ -345,11 +354,13 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End Testimonial Slider -->
 
 <!-- Start Blog Section -->
 <div class="blog-section">
+    {% block blog-section %}
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-6">
@@ -400,11 +411,13 @@
 
         </div>
     </div>
+    {% endblock %}
 </div>
 <!-- End Blog Section -->
 
 <!-- Start Footer Section -->
 <footer class="footer-section">
+    {% block footer-section %}
     <div class="container relative">
 
         <div class="sofa-img">
@@ -513,7 +526,9 @@
             </div>
         </div>
 
+
     </div>
+    {% endblock %}
 </footer>
 <!-- End Footer Section -->
 

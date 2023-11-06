@@ -7,7 +7,7 @@
         <div class="row justify-content-between">
             <div class="col-lg-6 offset-lg-3">
                 <div class="intro-excerpt">
-                    <h1>Lost of sellers: </h1>
+                    <h1>List of sellers: </h1>
                 </div>
             </div>
         </div>
@@ -90,17 +90,14 @@
                     </a>
                     <ul class="dropdown-menu">
                     {#                                {% if perms.seller.change_seller %}#}
-                    <li><a class="dropdown-item" href=#>Modify</a>
+                    <li><a class="dropdown-item" href={% url 'update-seller' seller.id %}>Modify</a>
                         {#                                                                        {% url 'update-seller' seller.id %}#}
                     </li>
                     {#                                {% endif %}#}
                     {#                                {% if perms.seller.delete_seller %}#}
-                    <li><a class="dropdown-item" href=#>Delete</a>
+                    <li><a class="dropdown-item" href="{% url 'delete-seller' seller.id %}">Delete</a>
                     </li>
                     {#                                {% endif %}#}
-                    {#                                {% if perms.seller.view_seller %}#}
-                    <li><a class="dropdown-item" href=#>View details</a></li>
-                                {#                                {% endif %}#}
                                                             </ul>
                                                         </div>
                                                     </td>

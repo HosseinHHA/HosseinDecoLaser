@@ -44,4 +44,19 @@ class SellerForm(forms.ModelForm):
                 self.add_error('email', msg)
 
 
+class SellerUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Seller
+
+        fields = ['first_name', 'last_name', 'email', 'gender',
+                  'birth_date', 'active', 'profile']
+        widgets = {
+            'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your first name'}),
+            'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your last name'}),
+            'email': EmailInput(attrs={'class': 'form-control', 'placeholder': 'Please enter your email'}),
+            'gender': Select(attrs={'class': 'form-select'}),
+            'birth_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'active': CheckboxInput(attrs={'class': 'custom-checkbox-class'}),
+            'profile': FileInput(attrs={'class': 'form-control-file'}),
+        }
 

@@ -2,9 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, ListView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from seller.forms import SellerForm
+from seller.forms import SellerForm, SellerUpdateForm
 from seller.models import Seller
 
 
@@ -40,9 +40,16 @@ class SellerListView(LoginRequiredMixin, ListView):
         return Seller.objects.filter(active=True)
     
     
-# class SellerDeleteView(DeleteView):
-#     template_name = 'seller/delete_seller.html'
-#     model = Seller
-#     success_url = reverse_lazy('list-of-sellers')
+class SellerDeleteView(LoginRequiredMixin, DeleteView):
+    template_name = 'seller/delete_seller.html'
+    model = Seller
+    success_url = reverse_lazy('list-of-sellers')
 
+
+class SellerUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'seller/update_seller.html'
+    model = Seller
+    form_class = SellerUpdateForm
+    success_url = reverse_lazy('list-of-students')
+    # permission_required = 'seller.change_seller'
 

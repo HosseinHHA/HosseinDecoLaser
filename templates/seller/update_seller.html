@@ -1,0 +1,39 @@
+{% extends 'layout/content_base.html' %}
+{% load static %}
+
+
+{% block hero %}
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="intro-excerpt">
+                    <h1>Update seller </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block product-section %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Update - {{ seller }}</h3>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-outline-success">Save</button>
+                            <a href="{% url 'list-of-sellers' %}" class = "btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

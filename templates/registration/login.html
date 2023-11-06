@@ -1,13 +1,11 @@
 {% extends 'layout/content_base.html' %}
-{% load static %}
-
 
 {% block hero %}
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-6 offset-lg-3">
                 <div class="intro-excerpt">
-                    <h1>New seller </h1>
+                    <h1>Log in :</h1>
                 </div>
             </div>
         </div>
@@ -18,24 +16,24 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <br><br>
+                <br><br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center"> Register a new seller</h3>
+                        <h3 class="text-center">Log in</h3>
                     </div>
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post">
                         {% csrf_token %}
                         <div class="card-body">
                             {{ form.as_p }}
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="{% url 'home-page' %}" class="btn btn-warning"> Cancel</a>
+                            <button type="submit" class="btn btn-outline-success">Login</button>
+{#                            <a href="#" class="btn btn-outline-danger">Forgot your password?</a>#}
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
 
+{% endblock %}

@@ -171,10 +171,10 @@ a {
 .btn {
   font-weight: 600;
   padding: 12px 30px;
-  border-radius: 30px;
+  border-radius: 20px;
   color: #ffffff;
-  background: yellow;
-  border-color:yelow; }
+  background: #2c9b97 ;
+  border-color:greenyellow;  }
   .btn:hover {
     color: #ffffff;
     background: #222222;

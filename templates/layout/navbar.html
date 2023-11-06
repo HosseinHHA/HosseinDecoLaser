@@ -24,70 +24,100 @@
                        aria-expanded="false">Seller</a>
                     <ul class="dropdown-menu dropdown-menu-dark">
 
-{#                        {% if perms.seller.add_seller %}#}
-                        <li><a class="dropdown-item" href="{% url 'create-seller' %}" style="color:red!important;">Register a new seller</a></li>
-{#                            {% endif %}#}
-{#                    {% if perms.seller.view_list_of_sellers %}#}
-                        <li><a class="dropdown-item" href="{% url 'list-of-sellers' %}"  style="color:red!important;">List of sellers</a></li>
+                        {#                        {% if perms.seller.add_seller %}#}
+                        <li><a class="dropdown-item" href="{% url 'create-seller' %}"
+{#                               style="color:red!important;"#}
+                        >Register
+                            a new seller</a></li>
+                        {#                            {% endif %}#}
+                        {#                    {% if perms.seller.view_list_of_sellers %}#}
+                        <li><a class="dropdown-item" href="{% url 'list-of-sellers' %}"
+{#                               style="color:red!important;"#}
+                        >List
+                            of sellers</a></li>
 
-{#                        "{% url 'list-of-sellers' %}"#}
+                        {#                        "{% url 'list-of-sellers' %}"#}
 
-{#                        {% endif %}#}
+                        {#                        {% endif %}#}
                     </ul>
                 </li>
 
-                 <li class="nav-item dropdown ">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">Products</a>
                     <ul class="dropdown-menu dropdown-menu-dark">
 
-{#                        {% if perms.seller.add_seller %}#}
+                        {#                        {% if perms.seller.add_seller %}#}
                         <li><a class="dropdown-item" href="#">Add a new product</a></li>
-{#                            {% endif %}#}
-{#                    {% if perms.seller.view_list_of_sellers %}#}
+                        {#                            {% endif %}#}
+                        {#                    {% if perms.seller.view_list_of_sellers %}#}
                         <li><a class="dropdown-item" href=#>List of products</a></li>
 
-{#                        "{% url 'list-of-sellers' %}"#}
+                        {#                        "{% url 'list-of-sellers' %}"#}
 
-{#                        {% endif %}#}
+                        {#                        {% endif %}#}
                     </ul>
                 </li>
                 <!--Start Sign in(dropdown form)-->
-                <div class="dropdown">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-          data-bs-auto-close="outside">Sign in</button>
-  <form class="dropdown-menu p-4">
-    <div class="mb-4">
-      <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-    </div>
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-    </div>
-    <div class="mb-3">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-        <label class="form-check-label" for="dropdownCheck2">
-          Remember me
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-</div>
+                {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-secondary">Log out, {{ user.username }}</a>
+                </div>
+                <form class="d-flex" method="get" action="" role="search">
+                    <input name="filter" class="form-control me-2" type="search" placeholder="Search"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            {% else %}
+                <div>
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login</a>
+                    <a href="{% url 'create-user' %}" class="btn btn-outline-secondary">Sign up</a>
+                </div>
+            {% endif %}
+
+
+{#                <div class="dropdown">#}
+{#                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"#}
+{#                            aria-expanded="false"#}
+{#                            data-bs-auto-close="outside">Sign in#}
+{#                    </button>#}
+{#                    <form class="dropdown-menu p-4">#}
+{#                        <div class="mb-4">#}
+{#                            <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>#}
+{#                            <input type="email" class="form-control" id="exampleDropdownFormEmail2"#}
+{#                                   placeholder="email@example.com">#}
+{#                        </div>#}
+{#                        <div class="mb-3">#}
+{#                            <label for="exampleDropdownFormPassword2" class="form-label">Password</label>#}
+{#                            <input type="password" class="form-control" id="exampleDropdownFormPassword2"#}
+{#                                   placeholder="Password">#}
+{#                        </div>#}
+{#                        <div class="mb-3">#}
+{#                            <div class="form-check">#}
+{#                                <input type="checkbox" class="form-check-input" id="dropdownCheck2">#}
+{#                                <label class="form-check-label" for="dropdownCheck2">#}
+{#                                    Remember me#}
+{#                                </label>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <button type="submit" class="btn btn-primary">Sign in</button>#}
+{#                    </form>#}
+{#                </div>#}
+
+
                 <!--End Sign in(dropdown form)-->
 
-{#                <li><a class="nav-link" href={% url 'home-page' %}>Shop</a></li>#}
-{#                <li><a class="nav-link" href="about.html">About us</a></li>#}
-{#                <li><a class="nav-link" href="services.html">Services</a></li>#}
-{#                <li><a class="nav-link" href="blog.html">Blog</a></li>#}
-{#                <li><a class="nav-link" href="contact.html">Contact us</a></li>#}
+
+                {#                <li><a class="nav-link" href={% url 'home-page' %}>Shop</a></li>#}
+                {#                <li><a class="nav-link" href="about.html">About us</a></li>#}
+                {#                <li><a class="nav-link" href="services.html">Services</a></li>#}
+                {#                <li><a class="nav-link" href="blog.html">Blog</a></li>#}
+                {#                <li><a class="nav-link" href="contact.html">Contact us</a></li>#}
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="#"><img src="{% static 'images/user.svg'%}"></a></li>
-                <li><a class="nav-link" href="#"><img src="{% static 'images/cart.svg'%}"></a></li>
+                <li><a class="nav-link" href="#"><img src="{% static 'images/user.svg' %}"></a></li>
+                <li><a class="nav-link" href="#"><img src="{% static 'images/cart.svg' %}"></a></li>
             </ul>
         </div>
     </div>

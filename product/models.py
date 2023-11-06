@@ -16,3 +16,8 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.product_name} {self.color}'
 
+
+class CartItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+

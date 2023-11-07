@@ -1,0 +1,94 @@
+{% extends 'layout/content_base.html' %}
+{% load static %}
+
+
+{% block hero %}
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="intro-excerpt">
+                    <h1>SHOPPING </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block product-section %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong> Very nice! </strong>{{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+
+                    {% endfor %}
+                {% endif %}
+
+                {% if all_products %}
+                    <table class="table">
+
+                        <thead>
+                        <tr>
+                            <th>ID.</th>
+                            <th>Image</th>
+                            <th>Product name</th>
+                            <th>color</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in all_products %}
+
+                            <tr>
+                                <td>{{ product.id }}</td>
+                                <td><img src="{{ product.image.url }}" style="width: 60px; height: 60px"
+                                         alt="No image."></td>
+                                <td>{{ product.product_name }}</td>
+                                <td>{{ product.color }}</td>
+                                <td>{{ product.description }}</td>
+                                <td>{{ product.price }}</td>
+                                {#                                {% if perms.product.change_product or perms.product.delete_product or perms.product.view_product %}#}
+                                <td>
+                                    <div class="dropdown ">
+                                        <a class="btn btn-warning dropdown-toggle" type="button"
+                                           style="background:#507914!important;"
+                                           data-bs-toggle="dropdown" aria-expanded="false">More actions
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            {#                                {% if perms.product.change_product %}#}
+                                            <li><a class="dropdown-item" href=#>Modify</a>
+                                                {#                                                                        {% url 'update-product' product.id %}#}
+                                            </li>
+                                            {#                                {% endif %}#}
+                                            {#                                {% if perms.product.delete_product %}#}
+                                            <li><a class="dropdown-item" href=#>Delete</a>
+                                            </li>
+                                            {#                                {% endif %}#}
+                                        </ul>
+                                    </div>
+                                </td>
+                                {#                    {% else %}#}
+                                {#                    <td>No action</td>#}
+                                {#                                                    {% endif %}#}
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <h1 class="text-center">NO product!</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

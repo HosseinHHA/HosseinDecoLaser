@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+from seller.models import Seller
 
 
 class Product(models.Model):
@@ -9,6 +9,8 @@ class Product(models.Model):
     description = models.TextField(max_length=700)
     image = models.ImageField(upload_to='product_image/', null=True)
     price = models.IntegerField()
+    # seller = models.ForeignKey(Seller, on_delete=models.CASCADE, null=True)
+
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

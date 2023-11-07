@@ -48,10 +48,10 @@
                     <ul class="dropdown-menu dropdown-menu-dark">
 
                         {#                        {% if perms.seller.add_seller %}#}
-                        <li><a class="dropdown-item" href="#">Add a new product</a></li>
+                        <li><a class="dropdown-item" href="{% url 'create-product' %}">Add a new product</a></li>
                         {#                            {% endif %}#}
                         {#                    {% if perms.seller.view_list_of_sellers %}#}
-                        <li><a class="dropdown-item" href=#>List of products</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products-in-cards' %}">List of products</a></li>
 
                         {#                        "{% url 'list-of-sellers' %}"#}
 

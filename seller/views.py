@@ -8,8 +8,6 @@ from seller.forms import SellerForm, SellerUpdateForm
 from seller.models import Seller
 
 
-# Create your views here.
-
 class SellerCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'seller/create_seller.html'
     model = Seller
@@ -34,7 +32,6 @@ class SellerListView(LoginRequiredMixin, ListView):
     template_name = 'seller/list_of_sellers.html'
     model = Seller
     context_object_name = 'all_sellers'
-    # permission_required = 'seller.view_list_of_sellers'
 
     def get_queryset(self):
         return Seller.objects.filter(active=True)
@@ -44,12 +41,13 @@ class SellerDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'seller/delete_seller.html'
     model = Seller
     success_url = reverse_lazy('list-of-sellers')
+    permission_required = 'seller.delete_seller'
 
 
 class SellerUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'seller/update_seller.html'
     model = Seller
     form_class = SellerUpdateForm
-    success_url = reverse_lazy('list-of-students')
-    # permission_required = 'seller.change_seller'
+    success_url = reverse_lazy('list-of-sellers')
+
 

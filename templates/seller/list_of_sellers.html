@@ -94,10 +94,10 @@
                         {#                                                                        {% url 'update-seller' seller.id %}#}
                     </li>
                     {#                                {% endif %}#}
-                    {#                                {% if perms.seller.delete_seller %}#}
+                                                    {% if perms.seller.delete_seller %}
                     <li><a class="dropdown-item" href="{% url 'delete-seller' seller.id %}">Delete</a>
                     </li>
-                    {#                                {% endif %}#}
+                                                    {% endif %}
                                                             </ul>
                                                         </div>
                                                     </td>

@@ -17,7 +17,7 @@ class UserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'email',
                   'username'
-        ]
+                  ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

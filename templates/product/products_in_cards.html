@@ -23,22 +23,14 @@
 
                     <div class="col-sm-3">
 
-
                         {% for product in all_products %}
-
-
                         <div class="card">
-
                           <img src="{{ product.image.url }}" class="card-img-top" alt="No image."/>
-
                             <div class="card-body">
                                     <h5 class="card-title">{{ product.product_name }}</h5>
                                     <p class="card-text">Color: {{ product.color }}</p>
                                     <p class="card-text">{{ product.description }}</p>
                                     <p class="card-text">{{ product.price }} $</p>
-
-
-                                {#                                {% if perms.product.change_product or perms.product.delete_product or perms.product.view_product %}#}
                                 <a>
                                     <div class="dropdown ">
                                         <a class="btn btn-warning dropdown-toggle" type="button"
@@ -46,11 +38,8 @@
                                            data-bs-toggle="dropdown" aria-expanded="false">More actions
                                         </a>
                                         <ul class="dropdown-menu">
-                                            {#                                {% if perms.product.change_product %}#}
                                             <li><a class="dropdown-item" href="{% url 'update-product' product.id %}">Modify</a>
-                                                {#                                                                        {% url 'update-product' product.id %}#}
                                             </li>
-                                            {#                                {% endif %}#}
                                              {% if perms.product.delete_product %}
                                             <li><a class="dropdown-item" href="{% url 'delete-product' product.id %}">Delete</a>
                                             </li>
@@ -58,20 +47,11 @@
                                         </ul>
                                     </div>
                                 </a>
-                                {#                    {% else %}#}
-                                {#                    <td>No action</td>#}
-                                {#                                                    {% endif %}#}
-
-
                             </div>
                         </div>
                         {% endfor %}
-
                     </div>
                     </div>
-
-
-
                 {% else %}
                     <h1 class="text-center">NO product!</h1>
                 {% endif %}
